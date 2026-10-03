@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Neon Relay — Arena Tag</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="game"></div>
+
+  <div id="hud">
+    <div class="topbar">
+      <div class="team">BLUE <b id="blueScore">0</b></div>
+      <div class="round"><span id="roundText">ROUND 1</span><strong id="timer">02:00</strong></div>
+      <div class="team red">ORANGE <b id="orangeScore">0</b></div>
+    </div>
+
+    <div id="feed"></div>
+
+    <div class="bottom">
+      <div class="stat"><span>HP</span><b id="hp">100</b></div>
+      <div class="stat"><span>ENERGY</span><b id="energy">100</b></div>
+      <div class="weapon"><small>TAGGER</small><b id="ammo">12 / 48</b></div>
+      <div class="crosshair"><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+
+  <div id="menu" class="screen">
+    <div class="panel">
+      <p class="eyebrow">NEON RELAY</p>
+      <h1>ARENA TAG</h1>
+      <p>Командный тактический лазертаг на процедурной 3D-карте.</p>
+      <button id="play">ИГРАТЬ</button>
+      <button id="shopOpen" class="secondary">УЛУЧШЕНИЯ</button>
+      <button id="settingsOpen" class="secondary">НАСТРОЙКИ</button>
+      <div class="help">WASD · SHIFT · SPACE · CTRL · МЫШЬ · ЛКМ · R · 1/2/3 · ESC</div>
+    </div>
+  </div>
+
+  <div id="shop" class="screen hidden">
+    <div class="panel shop">
+      <h2>УЛУЧШЕНИЯ</h2>
+      <p>Кредиты: <b id="credits">800</b></p>
+      <div id="shopItems"></div>
+      <button id="shopClose">ЗАКРЫТЬ</button>
+    </div>
+  </div>
+
+  <div id="settings" class="screen hidden">
+    <div class="panel">
+      <h2>НАСТРОЙКИ</h2>
+      <label>Громкость <input id="volume" type="range" min="0" max="1" step=".05"></label>
+      <label>Чувствительность <input id="sens" type="range" min=".2" max="2" step=".05"></label>
+      <label>FOV <input id="fov" type="range" min="65" max="100"></label>
+      <label>Качество
+        <select id="quality"><option value="high">Высокое</option><option value="medium">Среднее</option><option value="low">Низкое</option></select>
+      </label>
+      <button id="settingsClose">СОХРАНИТЬ</button>
+    </div>
+  </div>
+
+  <div id="roundEnd" class="screen hidden">
+    <div class="panel">
+      <p class="eyebrow">РАУНД ЗАВЕРШЁН</p>
+      <h2 id="roundWinner">BLUE TEAM</h2>
+      <p id="roundReason"></p>
+      <button id="nextRound">СЛЕДУЮЩИЙ РАУНД</button>
+    </div>
+  </div>
+
+  <div id="mobileControls">
+    <div id="stickZone"><div id="stick"><span></span></div></div>
+    <div id="lookZone"></div>
+    <div id="mobileButtons">
+      <button id="btnJump">JUMP</button>
+      <button id="btnCrouch">CROUCH</button>
+      <button id="btnReload">↻</button>
+      <button id="btnFire">TAG</button>
+    </div>
+  </div>
+  <div id="damage"></div>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
